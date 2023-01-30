@@ -10,39 +10,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $("#search").click(function() {
-          var playerName = $("#player").val();
-          var url = "https://www.balldontlie.io/api/v1/players?search=" + playerName;
-          $.get(url, function(data) {
-            var player = data.data[0];
-            var statsUrl = "https://www.balldontlie.io/api/v1/stats?player_ids[]=" + player.id;
-            $.get(statsUrl, function(statsData) {
-              var stats = statsData.data;
-              var avgPts = 0, avgAst = 0, avgReb = 0, avgBlk = 0, avgStl = 0;
-              for (var i = 0; i < stats.length; i++) {
-                avgPts += stats[i].pts;
-                avgAst += stats[i].ast;
-                avgReb += stats[i].reb;
-                avgBlk += stats[i].blk;
-                avgStl += stats[i].stl;
-              }
-              avgPts = avgPts / stats.length;
-              avgAst = avgAst / stats.length;
-              avgReb = avgReb / stats.length;
-              avgBlk = avgBlk / stats.length;
-              avgStl = avgStl / stats.length;
-              $("#result").html("Pontos por partida: " + avgPts + "<br>" +
-                                "Assistências por partida: " + avgAst + "<br>" +
-                                "Rebotes por partida: " + avgReb + "<br>" +
-                                "Bloqueios por partida: " + avgBlk + "<br>" +
-                                "Roubos de bola por partida: " + avgStl);
-            });
-          });
+   <script>
+  $(document).ready(function() {
+    $("#search").click(function() {
+      var playerName = $("#player").val();
+      var team = $("#team").val();
+      var url = "https://www.balldontlie.io/api/v1/players?search=" + playerName + "&team_ids[]=" + team;
+      $.get(url, function(data) {
+        var player = data.data[0];
+        var statsUrl = "https://www.balldontlie.io/api/v1/stats?player_ids[]=" + player.id;
+        $.get(statsUrl, function(statsData) {
+          var stats = statsData.data;
+          var avgPts = 0, avgAst = 0, avgReb = 0, avgBlk = 0, avgStl = 0;
+          for (var i = 0; i < stats.length; i++) {
+            avgPts += stats[i].pts;
+            avgAst += stats[i].ast;
+            avgReb += stats[i].reb;
+            avgBlk += stats[i].blk;
+            avgStl += stats[i].stl;
+          }
+          avgPts = avgPts / stats.length;
+          avgAst = avgAst / stats.length;
+          avgReb = avgReb / stats.length;
+          avgBlk = avgBlk / stats.length;
+          avgStl = avgStl / stats.length;
+          $("#result").html("Nome do jogador: " + player.first_name + " " + player.last_name + "<br>" +
+                            "Time: " + player.team.full_name + "<br>" +
+                            "Resultado das últimas partidas: " + "<br>" +
+                            "Pontos por partida: " + avgPts + "<br>" +
+                            "Assistências por partida: " + avgAst + "<br>" +
+                            "Rebotes por partida: " + avgReb + "<br>" +
+                            "Bloqueios por partida: " + avgBlk + "<br>" +
+                            "Roubos de bola por partida: " + avgStl);
         });
       });
-    </script>
+    });
+  });
+</script>
   </head>
  
   <body class="d-flex  align-items-center ">
