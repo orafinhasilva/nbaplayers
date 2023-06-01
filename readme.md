@@ -18,4 +18,4 @@ Contribuições são bem-vindas! Se você encontrar algum problema, bug ou tiver
 
 ## Licença
 
-Este projeto está licenciado sob a licença [MIT](https://github.com/nbaplayers/form/blob/main/LICENSE).
+Este projeto está licenciado sob a licença [MIT](https://github.com/orafinhasilva/nbaplayers/blob/main/LICENSE).
