@@ -7,3 +7,15 @@ A página usa a API balldontlie (https://www.balldontlie.io/) para obter informa
 Este projeto demonstra habilidades em manipulação de APIs, jQuery e Bootstrap para construir uma interface de usuário amigável e responsiva.
 </br><b>Veja uma demonstração:</b>
 https://orafinhasilva.github.io/nbaplayers/bot.html
+
+## Personalização
+
+Você pode personalizar o formulário de acordo com suas necessidades, alterando o código fornecido.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você encontrar algum problema, bug ou tiver alguma sugestão de melhoria, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença [MIT](https://github.com/nbaplayers/form/blob/main/LICENSE).
